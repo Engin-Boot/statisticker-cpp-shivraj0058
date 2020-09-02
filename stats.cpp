@@ -27,6 +27,7 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_
 float Statistics::minElement(const std::vector<float>& float_vector)
 {
     float min = float_vector[0];
+    int float_vector_size = float_vector.size();
     for (int i = 1; i<float_vector_size; i++)
     {
         if (float_vector[i]<min)
@@ -38,6 +39,7 @@ float Statistics::minElement(const std::vector<float>& float_vector)
 float Statistics::maxElement(const std::vector<float>& float_vector)
 {
     float max = float_vector[0];
+    int float_vector_size = float_vector.size();
     for (int i = 1; i<float_vector_size; i++)
     {
         if (float_vector[i]>max)
