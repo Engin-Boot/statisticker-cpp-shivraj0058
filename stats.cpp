@@ -17,12 +17,7 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_
     }
     else
     {
-        vector<float> float_vector2;
-        for (int i = 0; i < float_vector_size; i++)
-        {
-            if (!isnan(float_vector[i]))
-                float_vector2.push_back(float_vector[i]);
-        }
+        vector<float> float_vector2 = float_vector;
         int float_vector2_size = float_vector2.size();
         statobj.average = Sum(float_vector2) / float_vector2_size;
         statobj.max = maxElement(float_vector2);
