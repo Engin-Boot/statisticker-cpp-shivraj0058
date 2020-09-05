@@ -7,23 +7,28 @@ using namespace std;
 Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_vector)
 {
     Statistics::Stats statobj;
-    if (float_vector.size() == 0)
+    int float_vector_size = float_vector.size();
+    if (float_vector_size == 0)
     {
         statobj.max = nanf("");
         statobj.min = nanf("");
         statobj.average = nanf("");
         return statobj;
     }
-    vector<float> float_vector2;
-    for (int i = 0; i < float_vector.size(); i++)
+    else
     {
-        if (!isnan(float_vector[i]))
-            float_vector2.push_back(float_vector[i]);
+        vector<float> float_vector2;
+        for (int i = 0; i < float_vector_size; i++)
+        {
+            if (!isnan(float_vector[i]))
+                float_vector2.push_back(float_vector[i]);
+        }
+        int float_vector2_size = float_vector2.size();
+        statobj.average = Sum(float_vector2) / float_vector2_size;
+        statobj.max = maxElement(float_vector2);
+        statobj.min = minElement(float_vector2);
+        return statobj;
     }
-    statobj.average = Sum(float_vector2) / float_vector2.size();
-    statobj.max = maxElement(float_vector2);
-    statobj.min = minElement(float_vector2);
-    return statobj;
 }
 
 float Statistics::minElement(const std::vector<float>& float_vector2)
@@ -47,6 +52,7 @@ float Sum(const std::vector<float>& float_vector2)
         sum = sum + float_vector2[i];
     }
     return sum;
+
 }
 float Statistics::maxElement(const std::vector<float>& float_vector2)
 {
