@@ -8,13 +8,6 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_
 {
     Statistics::Stats statobj;
     int float_vector_size = float_vector.size();
-    if (float_vector_size == 0)
-    {
-        statobj.max = nanf("");
-        statobj.min = nanf("");
-        statobj.average = nanf("");
-        return statobj;
-    }
     vector<float> float_vector2;
     for (int i = 0; i < float_vector_size; i++)
     {
