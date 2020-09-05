@@ -38,7 +38,7 @@ float Statistics::minElement(const std::vector<float>& float_vector2)
     return min;
 }
 
-float Sum(const std::vector<float>& float_vector2)
+float Statistics::Sum(const std::vector<float>& float_vector2)
 {
     int sum = 0;
     int float_vector2_size = float_vector2.size();
