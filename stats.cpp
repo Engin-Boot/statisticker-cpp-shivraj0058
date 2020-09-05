@@ -6,13 +6,10 @@ using namespace std;
 
 Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_vector)
 {
-    Statistics::Stats statobj = {NAN,NAN,NAN};
+    Statistics::Stats statobj{ nanf(""),nanf(""),nanf("") };
     int float_vector_size = float_vector.size();
     if (float_vector_size == 0)
     {
-        statobj.max = nanf("");
-        statobj.min = nanf("");
-        statobj.average = nanf("");
         return statobj;
     }
     else
