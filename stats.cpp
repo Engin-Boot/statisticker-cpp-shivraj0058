@@ -19,7 +19,7 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_
     {
         vector<float> float_vector2 = float_vector;
         int float_vector2_size = float_vector2.size();
-        statobj.average = Average(float_vector2) / float_vector2_size;
+        statobj.average = Average(float_vector2);
         statobj.max = maxElement(float_vector2);
         statobj.min = minElement(float_vector2);
         return statobj;
