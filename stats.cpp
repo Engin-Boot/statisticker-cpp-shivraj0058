@@ -6,7 +6,7 @@ using namespace std;
 
 Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_vector)
 {
-    Statistics::Stats statobj;
+    Statistics::Stats statobj = {NAN,NAN,NAN};
     int float_vector_size = float_vector.size();
     if (float_vector_size == 0)
     {
@@ -19,7 +19,7 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_
     {
         vector<float> float_vector2 = float_vector;
         int float_vector2_size = float_vector2.size();
-        statobj.average = Sum(float_vector2) / float_vector2_size;
+        statobj.average = Average(float_vector2) / float_vector2_size;
         statobj.max = maxElement(float_vector2);
         statobj.min = minElement(float_vector2);
         return statobj;
@@ -38,7 +38,7 @@ float Statistics::minElement(const std::vector<float>& float_vector2)
     return min;
 }
 
-float Statistics::Sum(const std::vector<float>& float_vector2)
+float Statistics::Average(const std::vector<float>& float_vector2)
 {
     int sum = 0;
     int float_vector2_size = float_vector2.size();
@@ -46,7 +46,8 @@ float Statistics::Sum(const std::vector<float>& float_vector2)
     {
         sum = sum + float_vector2[i];
     }
-    return sum;
+    float average = sum / float_vector2_size;
+    return average;
 
 }
 float Statistics::maxElement(const std::vector<float>& float_vector2)
