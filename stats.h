@@ -10,4 +10,5 @@ namespace Statistics {
  Stats ComputeStatistics(const std::vector<float>& float_vector);
  float maxElement(const std::vector<float>& float_vector);
  float minElement(const std::vector<float>& float_vector);
+ float Sum(const std::vector<float>& float_vector);
 }
