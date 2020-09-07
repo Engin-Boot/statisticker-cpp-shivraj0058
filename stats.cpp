@@ -31,6 +31,21 @@ float Statistics::minElement(const std::vector<float>& float_vector2)
 }
 
 
+std::vector<float> Statistics::RemoveNan(const std::vector<float>& float_vector)
+{
+    std::vector<float> float_vector3;
+    std::vector<float>::const_iterator iterator = float_vector.begin();
+    while (iterator != float_vector.end())
+    {
+        if (!isnan(*iterator))
+        {
+            float_vector3.push_back(*iterator);
+            iterator++;
+        }
+    }
+    return float_vector3;
+}
+
 float Statistics::Average(const std::vector<float>& float_vector)
 {
 
@@ -55,19 +70,3 @@ float Statistics::maxElement(const std::vector<float>& float_vector2)
     }
     return max;
 }
-
-std::vector<float> RemoveNan(const std::vector<float>& float_vector)
-{
-    std::vector<float> float_vector3;
-    std::vector<float>::const_iterator iterator = float_vector.begin();
-    while (iterator != float_vector.end())
-    {
-        if (!isnan(*iterator))
-        {
-            float_vector3.push_back(*iterator);
-            iterator++;
-        }
-    }
-    return float_vector3;
-}
-
