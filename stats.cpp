@@ -6,21 +6,16 @@ using namespace std;
 
 Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_vector)
 {
-    Statistics::Stats statobj{ nanf(""),nanf(""),nanf("") };
-    int float_vector_size = float_vector.size();
-    if (float_vector_size == 0)
+    Statistics::Stats statobj={NAN,NAN,NAN};
+    std::vector<float> NonNANfloatVector = RemoveNan(float_vector);
+    if (NonNANfloatVector.size() == NULL)
     {
         return statobj;
     }
-    else
-    {
-        vector<float> float_vector2 = float_vector;
-        int float_vector2_size = float_vector2.size();
-        statobj.average = Average(float_vector2);
-        statobj.max = maxElement(float_vector2);
-        statobj.min = minElement(float_vector2);
-        return statobj;
-    }
+    statobj.average = Average(NonNANfloatVector);
+    statobj.max = maxElement(NonNANfloatVector);
+    statobj.min = minElement(NonNANfloatVector);
+    
 }
 
 float Statistics::minElement(const std::vector<float>& float_vector2)
@@ -57,5 +52,20 @@ float Statistics::maxElement(const std::vector<float>& float_vector2)
             max = float_vector2[i];
     }
     return max;
+}
+
+std::vector<float> RemoveNan(const std::vector<float>& float_vector)
+{
+    std::vector<float> float_vector3;
+    std::vector<float>::const_iterator iterator = float_vector.begin();
+    while (iterator != float_vector.end())
+    {
+        if (!isnan(*iterator))
+        {
+            float_vector3.push_back(*iterator);
+            iterator++;
+        }
+    }
+    return float_vector3;
 }
 
