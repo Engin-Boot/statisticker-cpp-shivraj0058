@@ -7,6 +7,7 @@ namespace Statistics {
  float max;
  float min;
 };
+
  Stats ComputeStatistics(const std::vector<float>& float_vector);
  std::vector<float> RemoveNan(const std::vector<float>& float_vector);
  float maxElement(const std::vector<float>& float_vector);
