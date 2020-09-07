@@ -8,7 +8,7 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& float_
 {
     Statistics::Stats statobj={NAN,NAN,NAN};
     std::vector<float> NonNANfloatVector = RemoveNan(float_vector);
-    if (NonNANfloatVector.size() == NULL)
+    if (NonNANfloatVector.size() == 0)
     {
         return statobj;
     }
@@ -30,16 +30,17 @@ float Statistics::minElement(const std::vector<float>& float_vector2)
     return min;
 }
 
-float Statistics::Average(const std::vector<float>& float_vector2)
+
+float Statistics::Average(const std::vector<float>& float_vector)
 {
-    int sum = 0;
-    int float_vector2_size = float_vector2.size();
-    for (int i = 0; i < float_vector2_size; i++)
+
+    int iterator; float sum = 0;
+    for (iterator = 0; iterator<float_vector.size(); iterator++)
     {
-        sum = sum + float_vector2[i];
+
+        sum = sum + float_vector[iterator];
     }
-    float average = sum / float_vector2_size;
-    return average;
+    return sum / float_vector.size();
 
 }
 float Statistics::maxElement(const std::vector<float>& float_vector2)
