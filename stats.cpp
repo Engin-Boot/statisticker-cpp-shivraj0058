@@ -40,8 +40,7 @@ std::vector<float> Statistics::RemoveNan(const std::vector<float>& float_vector)
         if (!isnan(*iterator))
         {
             float_vector3.push_back(*iterator);
-            iterator++;
-        }
+        }iterator++;
     }
     return float_vector3;
 }
